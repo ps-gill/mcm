@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=mcm
+Type=Application
+Terminal=true
+NoDisplay=true
+Exec=mcm
+Icon=mcm
+Categories=System;
+X-AppImage-Integrate=false

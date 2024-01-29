@@ -1,0 +1,10 @@
+#ifndef MCM_INFO_H
+#define MCM_INFO_H
+
+#include <QVersionNumber>
+
+#define MCM_APPLICATION "@CMAKE_PROJECT_NAME@"
+
+const QVersionNumber MCM_VERSION(@MCM_VERSION_MAJOR@, @MCM_VERSION_MINOR@, @MCM_VERSION_PATCH@);
+
+#endif

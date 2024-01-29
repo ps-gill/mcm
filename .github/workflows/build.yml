@@ -1,0 +1,25 @@
+name: MCM CLI AppImage
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install dependencies
+        run: sudo ./ci/install-deps-ubuntu.sh
+      - name: build app image
+        run: ./ci/build-app-image.sh
+      - name: create release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: './cmake-build-release-app-image/mcm-x86_64.AppImage'
